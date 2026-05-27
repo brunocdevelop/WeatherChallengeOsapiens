@@ -1,14 +1,7 @@
-/**
- * Shared types for the weather services.
- *
- * Feel free to extend these — they're a starting point, not a constraint.
- * If you change the shape, make sure both service implementations and the
- * UI agree on it.
- */
-
 export interface Location {
-  /** Raw user-entered location string. */
   query: string;
+  lon?: number;
+  lat?: number;
 }
 
 export interface WeatherData {
@@ -20,6 +13,9 @@ export interface WeatherData {
   location: string;
   /** Name of the service that produced this data — useful for the UI. */
   source: string;
+  humidity?: number;
+  feelsLike?: number;
+  windSpeed?: number;
 }
 
 /**
@@ -30,9 +26,15 @@ export interface WeatherData {
 export class WeatherServiceError extends Error {
   constructor(
     message: string,
-    public readonly code: 'NOT_FOUND' | 'NETWORK' | 'SERVICE_UNAVAILABLE' | 'UNKNOWN',
+    public readonly code:
+      | 'NOT_FOUND'
+      | 'NETWORK'
+      | 'SERVICE_UNAVAILABLE'
+      | 'UNKNOWN',
   ) {
     super(message);
     this.name = 'WeatherServiceError';
   }
 }
+
+export type WeatherService = 'Open-Meteo' | 'OpenWeatherMap';
