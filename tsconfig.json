@@ -1,6 +1,7 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
+    "jsx":"react-native",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -10,6 +11,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "App.tsx", "index.js"],
+  "include": ["src/**/*", "App.tsx", "index.js", "env.d.ts"],
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
