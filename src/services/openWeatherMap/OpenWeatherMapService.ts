@@ -1,7 +1,7 @@
 import {OPENWEATHERMAP_API_KEY} from '@env';
-import {IWeatherService} from '../IWeatherService';
-import {Location, WeatherData, WeatherServiceError} from '../types';
-import {OpenWeatherMapData} from './openWeatherMapTypes';
+import type {IWeatherService} from '../IWeatherService';
+import {type Location, type WeatherData, WeatherServiceError} from '../types';
+import type {OpenWeatherMapData} from './openWeatherMapTypes';
 
 export class OpenWeatherMapService implements IWeatherService {
   readonly name = 'OpenWeatherMap';
@@ -13,6 +13,7 @@ export class OpenWeatherMapService implements IWeatherService {
   }
 
   async fetchWeather(location: Location): Promise<WeatherData> {
+
     if (!this.apiKey) {
       throw new WeatherServiceError(
         'OpenWeatherMapService: OPENWEATHERMAP_API_KEY is missing from environment variables.',

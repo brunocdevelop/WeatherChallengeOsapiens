@@ -1,5 +1,5 @@
 import type {IWeatherService} from '../IWeatherService';
-import {Location, WeatherData, WeatherServiceError} from '../types';
+import {type Location, type WeatherData, WeatherServiceError} from '../types';
 import type {OpenMeteoGeoData, OpenMeteoWeatherData} from './openMeteoTypes';
 
 export class OpenMeteoService implements IWeatherService {
