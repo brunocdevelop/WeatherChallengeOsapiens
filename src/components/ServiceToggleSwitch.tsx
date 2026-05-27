@@ -3,13 +3,13 @@ import {StyleSheet, Switch, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
 import type {WeatherService} from '../services/types';
 
-export interface ServiceToggleProps {
+export interface ServiceToggleSwitchProps {
   options: ReadonlyArray<WeatherService>;
   selected: WeatherService;
   onSelect: (name: WeatherService) => void;
 }
 
-const ServiceToggle: React.FC<ServiceToggleProps> = ({
+const ServiceToggleSwitch: React.FC<ServiceToggleSwitchProps> = ({
   options,
   selected,
   onSelect,
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ServiceToggle;
+export default ServiceToggleSwitch;

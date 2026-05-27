@@ -13,11 +13,11 @@ import {colors} from '../theme/colors';
 import {OpenWeatherMapService} from '../services/openWeatherMap/OpenWeatherMapService';
 import {OpenMeteoService} from '../services/openMeteo/OpenMeteoService';
 import {
-  WeatherData,
-  WeatherService,
+  type WeatherData,
+  type WeatherService,
   WeatherServiceError,
 } from '../services/types';
-import {IWeatherService} from '../services/IWeatherService';
+import type {IWeatherService} from '../services/IWeatherService';
 import {validateLocation} from '../validation/locationValidator';
 import ServiceToggleSwitch from '../components/ServiceToggleSwitch';
 import {useDebounce} from '../hooks/useDebounce'; // adjust path to match your project
