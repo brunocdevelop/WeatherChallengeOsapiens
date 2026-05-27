@@ -1,21 +1,18 @@
-/**
- * Validates a user-entered location string.
- *
- * TODO: Implement.
- *
- * You decide what counts as valid. Some things to think about:
- *   - Minimum / maximum length
- *   - Allowed characters (letters, spaces, hyphens, commas, accents?)
- *   - Trimming whitespace
- *   - How to communicate WHY something is invalid back to the UI
- *
- * Document your choices in NOTES.md.
- */
-
 export type ValidationResult =
   | {valid: true; value: string}
   | {valid: false; reason: string};
 
-export function validateLocation(_input: string): ValidationResult {
-  throw new Error('validateLocation not implemented');
+export function validateLocation(input: string): ValidationResult {
+  const trimmed = input.trim().replace(/\s+/g, ' ');
+
+  if (trimmed.length === 0)
+    return {valid: false, reason: 'Location cannot be empty'};
+  if (trimmed.length < 2)
+    return {valid: false, reason: 'Location is too short'};
+  if (trimmed.length > 50)
+    return {valid: false, reason: 'Location is too long'};
+  if (!/^[\p{L}\s,.\-']+$/u.test(trimmed))
+    return {valid: false, reason: 'Invalid characters in location'};
+
+  return {valid: true, value: trimmed};
 }
