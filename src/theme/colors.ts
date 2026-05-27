@@ -4,7 +4,8 @@
  */
 
 export const colors = {
-  background: '#FFFFFF',
+  background: '#2d3a5f',
+  sectionBackground: '#eeeeee',
   text: '#1A1A1A',
   textSecondary: '#666666',
   border: '#E0E0E0',

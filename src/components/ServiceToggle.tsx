@@ -1,15 +1,12 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {colors} from '../theme/colors';
+import type {WeatherService} from '../services/types';
 
-/**
- * Stub for the service toggle. The starter shows two named options as
- * buttons; feel free to use a switch, segmented control, or anything else.
- */
 export interface ServiceToggleProps {
-  options: ReadonlyArray<string>;
-  selected: string;
-  onSelect: (name: string) => void;
+  options: ReadonlyArray<WeatherService>;
+  selected: WeatherService;
+  onSelect: (name: WeatherService) => void;
 }
 
 const ServiceToggle: React.FC<ServiceToggleProps> = ({
@@ -26,8 +23,7 @@ const ServiceToggle: React.FC<ServiceToggleProps> = ({
             key={name}
             onPress={() => onSelect(name)}
             style={[styles.button, isSelected && styles.buttonSelected]}>
-            <Text
-              style={[styles.label, isSelected && styles.labelSelected]}>
+            <Text style={[styles.label, isSelected && styles.labelSelected]}>
               {name}
             </Text>
           </Pressable>
@@ -42,6 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 16,
     gap: 8,
+    backgroundColor: colors.background ?? '#F5F7FA',
   },
   button: {
     flex: 1,
